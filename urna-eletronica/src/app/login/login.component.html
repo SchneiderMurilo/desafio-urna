@@ -1,0 +1,37 @@
+<main>
+  <section>
+
+    <h2 class="login-title">Login:</h2>
+
+    <input
+      class="email-input"
+      type="text"
+      placeholder="Digite seu e-mail"
+      [(ngModel)]="email"
+      name="email"
+      required
+    />
+
+    <div class="password-section">
+      <input
+        class="password-input"
+        [attr.type]='typeButtonPassword'
+        placeholder="Digite sua senha"
+        [(ngModel)]="password"
+        name="password"
+        required
+      />
+      <button class="password-button" (click)="changeTypeButtonPassword()" >
+        <img class="eye-password" src="../../assets/login/eye.png" alt="asd" />
+      </button>
+    </div>
+
+    <h2 class="error-login-message">{{errorMessage}}</h2>
+
+    <button
+      class="button-submit-login"
+      (click)="login()"
+    >Entrar</button>
+
+  </section>
+</main>

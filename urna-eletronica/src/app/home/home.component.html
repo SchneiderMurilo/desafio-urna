@@ -1,0 +1,296 @@
+<main class="main-urna-eletronica">
+
+  <h5 class="urna-id">Urna ID: {{voteRegistration.urna}}</h5>
+<section class="urna-eletronica">
+  <div>
+    <div class="screen-container">
+    <div class="screen">
+
+      @if(step === 1) {
+        <h2 class="title-voting">Deputado Federal</h2>
+
+        @if (!federalDeputyVoteWhite) {
+        <div class="numbers-voting">
+          <div class="number-voting-tag"><h3>{{ federalDeputyVote[1] ? 'Número:' : '' }}</h3></div>
+          <h2 [class]="!federalDeputyVote[0] ? 'blinking' : ''">{{ federalDeputyVote[0] }}</h2>
+          <h2 [class]="!federalDeputyVote[1] && federalDeputyVote[0] ? 'blinking' : ''">{{ federalDeputyVote[1] }}</h2>
+          <h2 [class]="!federalDeputyVote[2] && federalDeputyVote[1] ? 'blinking' : ''">{{ federalDeputyVote[2] }}</h2>
+          <h2 [class]="!federalDeputyVote[3] && federalDeputyVote[2] ? 'blinking' : ''">{{ federalDeputyVote[3] }}</h2>
+
+        </div>
+        }
+
+      } @else if (step === 2) {
+        <h2 class="title-voting">Deputado Estadual</h2>
+
+        @if (!stateDeputyVoteWhite) {
+        <div class="numbers-voting">
+          <div class="number-voting-tag"><h3>{{ stateDeputyVote[1] ? 'Número:' : '' }}</h3></div>
+          <h2 [class]="!stateDeputyVote[0] ? 'blinking' : ''">{{ stateDeputyVote[0] }}</h2>
+          <h2 [class]="!stateDeputyVote[1] && stateDeputyVote[0] ? 'blinking' : ''">{{ stateDeputyVote[1] }}</h2>
+          <h2 [class]="!stateDeputyVote[2] && stateDeputyVote[1] ? 'blinking' : ''">{{ stateDeputyVote[2] }}</h2>
+          <h2 [class]="!stateDeputyVote[3] && stateDeputyVote[2] ? 'blinking' : ''">{{ stateDeputyVote[3] }}</h2>
+          <h2 [class]="!stateDeputyVote[4] && stateDeputyVote[3] ? 'blinking' : ''">{{ stateDeputyVote[4] }}</h2>
+        </div>
+        }
+
+      } @else if (step === 3) {
+        <h2 class="title-voting">Senador</h2>
+
+        @if (!senatorVoteWhite) {
+        <div class="numbers-voting">
+          <div class="number-voting-tag"><h3>{{ senatorVote[1] ? 'Número:' : '' }}</h3></div>
+          <h2 [class]="!senatorVote[0] ? 'blinking' : ''">{{ senatorVote[0] }}</h2>
+          <h2 [class]="!senatorVote[1] && senatorVote[0] ? 'blinking' : ''">{{ senatorVote[1] }}</h2>
+          <h2 [class]="!senatorVote[2] && senatorVote[1] ? 'blinking' : ''">{{ senatorVote[2] }}</h2>
+        </div>
+        }
+
+      } @else if (step === 4) {
+        <h2 class="title-voting">Governador</h2>
+
+        @if (!governorVoteWhite) {
+        <div class="numbers-voting">
+          <div class="number-voting-tag"><h3>{{ governorVote[1] ? 'Número:' : '' }}</h3></div>
+          <h2 [class]="!governorVote[0] ? 'blinking' : ''">{{ governorVote[0] }}</h2>
+          <h2 [class]="!governorVote[1] && governorVote[0] ? 'blinking' : ''">{{ governorVote[1] }}</h2>
+        </div>
+        }
+
+      } @else if (step === 5) {
+        <h2 class="title-voting">Presidente</h2>
+
+        @if (!presidentVoteWhite) {
+        <div class="numbers-voting">
+          <div class="number-voting-tag"><h3>{{ presidentVote[1] ? 'Número:' : '' }}</h3></div>
+          <h2 [class]="!presidentVote[0] ? 'blinking' : ''">{{ presidentVote[0] }}</h2>
+          <h2 [class]="!presidentVote[1] && presidentVote[0] ? 'blinking' : ''">{{ presidentVote[1] }}</h2>
+        </div>
+        }
+      } @else if (step === 6) {
+        <div class="screen-finish">
+          <div class="progress-bar">
+            <div class="progress"></div>
+          </div>
+          <h2>Gravando</h2>
+        </div>
+      } @else if (step === 0) {
+        <div class="screen-finish">
+          <div class="progress-bar-step-0">
+            <div class=""></div>
+          </div>
+          <h2>Gravando</h2>
+        </div>
+      }
+      @else if (step === 7) {
+        <div class="screen-finish">
+          <h3>FIM</h3>
+        </div>
+      }
+
+      @if (candidateName) {
+        <div class="candidate-name-section">
+          <h2 class="candidate-name-tag">Nome: </h2>
+          <h2 class="candidate-name">{{candidateName}}</h2>
+        </div>
+
+        <div class="party-name-section">
+          <h2 class="party-name-tag">Partido: </h2>
+          <h2 class="party-name">{{party}}</h2>
+        </div>
+      }
+
+      @if (step === 1 && federalDeputyVoteWhite) {
+        <div class="candidate-white-vote-section">
+          <h2>VOTO EM BRANCO</h2>
+        </div>
+      } @else if (step === 2 && stateDeputyVoteWhite) {
+        <div class="candidate-white-vote-section">
+          <h2>VOTO EM BRANCO</h2>
+        </div>
+      } @else if (step === 3 && senatorVoteWhite) {
+        <div class="candidate-white-vote-section">
+          <h2>VOTO EM BRANCO</h2>
+        </div>
+      } @else if (step === 4 && governorVoteWhite) {
+        <div class="candidate-white-vote-section">
+          <h2>VOTO EM BRANCO</h2>
+        </div>
+      } @else if (step === 5 && presidentVoteWhite) {
+        <div class="candidate-white-vote-section">
+          <h2>VOTO EM BRANCO</h2>
+        </div>
+      }
+
+      @if (step === 1 && federalDeputyVoteNull) {
+        <div class="candidate-null-vote-section">
+          <h3>NÚMERO ERRADO</h3>
+          <h2>VOTO NULO</h2>
+        </div>
+      } @else if (step === 2 && stateDeputyVoteNull) {
+        <div class="candidate-null-vote-section">
+          <h3>NÚMERO ERRADO</h3>
+          <h2>VOTO NULO</h2>
+        </div>
+      } @else if (step === 3 && senatorVoteNull) {
+        <div class="candidate-null-vote-section">
+          <h3>NÚMERO ERRADO</h3>
+          <h2>VOTO NULO</h2>
+        </div>
+      } @else if (step === 4 && governorVoteNull) {
+        <div class="candidate-null-vote-section">
+          <h3>NÚMERO ERRADO</h3>
+          <h2>VOTO NULO</h2>
+        </div>
+      } @else if (step === 5 && presidentVoteNull) {
+        <div class="candidate-null-vote-section">
+          <h3>NÚMERO ERRADO</h3>
+          <h2>VOTO NULO</h2>
+        </div>
+      }
+
+      @if (step === 3 && firstSubstitute && secondSubstitute) {
+        <div class="margin-substitute-section">
+        <div class="substitute-name-section">
+          <h2 class="substitute-name-tag">1° Suplente: </h2>
+          <h2 class="substitute-name">{{firstSubstitute}}</h2>
+        </div>
+        <div class="substitute-name-section">
+          <h2 class="substitute-name-tag">2° Suplente: </h2>
+          <h2 class="substitute-name">{{secondSubstitute}}</h2>
+        </div>
+        </div>
+      }
+
+      @if (step === 4 && viceGovernor) {
+        <div class="margin-substitute-section">
+          <div class="substitute-name-section">
+            <h2 class="substitute-name-tag-governor">Vice-Governador: </h2>
+            <h2 class="substitute-name">{{viceGovernor}}</h2>
+          </div>
+        </div>
+      }
+
+      @if (step === 5 && vicePresident) {
+        <div class="margin-substitute-section">
+          <div class="substitute-name-section">
+            <h2 class="substitute-name-tag-president">Vice-Presidente: </h2>
+            <h2 class="substitute-name">{{vicePresident}}</h2>
+          </div>
+        </div>
+      }
+
+    </div>
+
+      <div class="candidates-images-section">
+        @if (candidateImage) {
+          <div class="candidate-image">
+            <img [src]="candidateImage"/>
+            @if (step === 1) {
+              <h3>Deputado Federal</h3>
+            } @else if (step === 2) {
+              <h3>Deputado Estadual</h3>
+            } @else if (step === 3) {
+              <h3>Senador</h3>
+            } @else if (step === 4) {
+              <h3>Governador</h3>
+            } @else if (step === 5) {
+              <h3>Presidente</h3>
+            }
+          </div>
+        }
+
+        @if (step === 3 && firstSubstituteImage) {
+          <div class="substitutes-images">
+            <div>
+            <img [src]="firstSubstituteImage"/>
+            <h3>1° Suplente</h3>
+            </div>
+            <div>
+              <img [src]="secondSubstituteImage"/>
+              <h3>2° Suplente</h3>
+            </div>
+          </div>
+        }
+
+        @if (step === 4 && viceCandidateImage || step === 5 && viceCandidateImage) {
+          <div class="substitutes-images">
+            <div>
+              <img [src]="viceCandidateImage"/>
+              @if (step === 4) {
+                <h3>Vice-Governador</h3>
+              } @else if (step === 5) {
+                <h3>Vice-Presidente</h3>
+              }
+            </div>
+          </div>
+        }
+
+      </div>
+
+    </div>
+
+    @if (confirmVote) {
+      <footer class="footer-screen-urna">
+        <h2 class="confirm-vote-footer">CONFIRA SEU VOTO</h2>
+      </footer>
+
+    } @else {
+          <footer
+            class="footer-screen-urna"
+          [ngStyle]="{border: step === 0 ? 'none' : ''}"
+          >
+        @if (step !== 6 && step !== 7 && step !== 0 ) {
+          <h4>Aperte a tecla:</h4>
+          <h5>CONFIRMA para PROSSEGUIR</h5>
+          <h5>CORRIGE para REINICIAR seu voto</h5>
+        }
+          </footer>
+    }
+
+  </div>
+
+  <div>
+  <div class="top-section-numeric-keyboard">
+    <img src="assets/urna/logo-tre.jpg">
+    <div class="top-numeric-keyboard-text">
+    <h3>JUSTIÇA <br> ELEITORAL</h3>
+    </div>
+  </div>
+  <div class="background-numeric-keyboard">
+
+    <div class="div-buttons">
+        <button (click)="digit(1)">1</button>
+        <button (click)="digit(2)">2</button>
+        <button (click)="digit(3)">3</button>
+    </div>
+    <div class="div-buttons">
+        <button (click)="digit(4)">4</button>
+        <button (click)="digit(5)">5</button>
+        <button (click)="digit(6)">6</button>
+    </div>
+    <div class="div-buttons">
+        <button (click)="digit(7)">7</button>
+        <button (click)="digit(8)">8</button>
+        <button (click)="digit(9)">9</button>
+    </div>
+    <div class="div-buttons">
+        <button (click)="digit(0)">0</button>
+    </div>
+
+    <div class="section-buttons-submit">
+      <button class="button-branco" (click)="whiteVote()">BRANCO</button>
+      <button class="button-corrige" (click)="clear()">CORRIGE</button>
+      <button class="button-confirma" (click)="nextStep()">CONFIRMA</button>
+    </div>
+
+  </div>
+  </div>
+
+</section>
+<div class="buttons-bottom">
+  <button style="background-color: darkred" (click)="logout()">Sair</button>
+  <button style="background-color: darkgreen" (click)="redirectToRelatorio()">Relatório</button>
+  @if (step === 7) {<button style="background-color: #a59d08" (click)="reset()">Reiniciar</button>}
+</div>
+</main>

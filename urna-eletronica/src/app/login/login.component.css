@@ -1,0 +1,113 @@
+main {
+  width: 100vw;
+  height: 100vh;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+section {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  background-color: #272832;
+
+  width: 500px;
+  height: 300px;
+  border-radius: 20px;
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.5);
+}
+
+.login-title {
+  color: white;
+  font-size: 30px;
+  margin-bottom: 15px;
+
+  font-family: "Poppins", serif;
+  font-weight: 500;
+}
+
+.email-input {
+  width: 300px;
+  height: 28px;
+  border: none;
+  border-radius: 5px;
+  font-family: "Poppins", serif;
+  padding-left: 10px;
+}
+
+.email-input:focus {
+  outline: none;
+}
+
+.password-section {
+  margin-top: 15px;
+  display: flex;
+  align-items: center;
+}
+
+.password-input {
+  width: 260px;
+  height: 28px;
+  border: none;
+  border-bottom-left-radius: 5px;
+  border-top-left-radius: 5px;
+  font-family: "Poppins", serif;
+  padding-left: 10px;
+}
+
+.password-input:focus {
+  outline: none;
+}
+
+.password-button {
+  width: 40px;
+  height: 28px;
+  border: none;
+  background-color: white;
+  border-bottom-right-radius: 5px;
+  border-top-right-radius: 5px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.eye-password {
+  width: 20px;
+  height: 22px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.button-submit-login {
+  width: 120px;
+  height: 40px;
+  background-color: #bc23b5;
+  border: none;
+  border-radius: 5px;
+  color: white;
+  font-family: "Poppins", serif;
+  font-weight: 500;
+  cursor: pointer;
+  margin-top: 8px;
+  transition: 0.3s;
+}
+
+.button-submit-login:hover {
+  background-color: #a61fa3;
+  scale: 1.02;
+}
+
+.error-login-message {
+  color: white;
+  font-family: "Poppins", serif;
+  font-size: 14px;
+  margin-top: 8px;
+  font-weight: 300;
+  height: 22px;
+}
+
