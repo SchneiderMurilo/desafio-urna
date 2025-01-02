@@ -50,12 +50,14 @@ export class HomeComponent {
 
   constructor(private urnaService: UrnaService, private router: Router, private route: ActivatedRoute) {
   }
+
   ngOnInit(): void {
     const urnaId = this.route.snapshot.paramMap.get('urnaId');
     if (urnaId) {
       this.voteRegistration.urna = +urnaId;
     }
   }
+
   async playConfirmAudio() {
       let audio = new Audio();
       audio.src = '../../assets/urna/confirm.wav';
@@ -279,11 +281,11 @@ export class HomeComponent {
   redirectToRelatorio() {
     window.location.href = `http://localhost:8000/relatorio/urna/${this.voteRegistration.urna}`;
   }
-    logout () {
+
+  logout () {
       localStorage.removeItem('jwt_token')
       this.router.navigate(['/login']);
   }
-
 
   nextStep() {
     if (this.step === 1 && this.candidateName !== '' ||

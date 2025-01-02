@@ -100,49 +100,21 @@
         </div>
       }
 
-      @if (step === 1 && federalDeputyVoteWhite) {
-        <div class="candidate-white-vote-section">
-          <h2>VOTO EM BRANCO</h2>
-        </div>
-      } @else if (step === 2 && stateDeputyVoteWhite) {
-        <div class="candidate-white-vote-section">
-          <h2>VOTO EM BRANCO</h2>
-        </div>
-      } @else if (step === 3 && senatorVoteWhite) {
-        <div class="candidate-white-vote-section">
-          <h2>VOTO EM BRANCO</h2>
-        </div>
-      } @else if (step === 4 && governorVoteWhite) {
-        <div class="candidate-white-vote-section">
-          <h2>VOTO EM BRANCO</h2>
-        </div>
-      } @else if (step === 5 && presidentVoteWhite) {
+      @if (step === 1 && federalDeputyVoteWhite ||
+          step === 2 && stateDeputyVoteWhite ||
+          step === 3 && senatorVoteWhite ||
+          step === 4 && governorVoteWhite ||
+          step === 5 && presidentVoteWhite) {
         <div class="candidate-white-vote-section">
           <h2>VOTO EM BRANCO</h2>
         </div>
       }
 
-      @if (step === 1 && federalDeputyVoteNull) {
-        <div class="candidate-null-vote-section">
-          <h3>NÚMERO ERRADO</h3>
-          <h2>VOTO NULO</h2>
-        </div>
-      } @else if (step === 2 && stateDeputyVoteNull) {
-        <div class="candidate-null-vote-section">
-          <h3>NÚMERO ERRADO</h3>
-          <h2>VOTO NULO</h2>
-        </div>
-      } @else if (step === 3 && senatorVoteNull) {
-        <div class="candidate-null-vote-section">
-          <h3>NÚMERO ERRADO</h3>
-          <h2>VOTO NULO</h2>
-        </div>
-      } @else if (step === 4 && governorVoteNull) {
-        <div class="candidate-null-vote-section">
-          <h3>NÚMERO ERRADO</h3>
-          <h2>VOTO NULO</h2>
-        </div>
-      } @else if (step === 5 && presidentVoteNull) {
+      @if (step === 1 && federalDeputyVoteNull ||
+          step === 2 && stateDeputyVoteNull ||
+          step === 3 && senatorVoteNull ||
+          step === 4 && governorVoteNull ||
+          step === 5 && presidentVoteNull) {
         <div class="candidate-null-vote-section">
           <h3>NÚMERO ERRADO</h3>
           <h2>VOTO NULO</h2>
