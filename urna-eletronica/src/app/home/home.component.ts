@@ -3,49 +3,23 @@ import { federalDeputies, stateDeputies, senators, governors, presidents } from 
 import { UrnaService } from '../services/urna.service';
 import { HttpClientModule } from '@angular/common/http';
 import {ActivatedRoute, Router} from '@angular/router';
-import {NgStyle} from '@angular/common';
+import {NgOptimizedImage, NgStyle} from '@angular/common';
 
 @Component({
   selector: 'app-home',
   standalone: true,
-  imports: [HttpClientModule, NgStyle],
+  imports: [HttpClientModule, NgStyle, NgOptimizedImage],
   templateUrl: './home.component.html',
   styleUrl: './home.component.css'
 })
 export class HomeComponent {
   voteRegistration = {
     urna: 0,
-    federalDeputy: {
-      number: '',
-      candidate: '',
-      party: '',
-      nullOrWhite: ''
-    },
-    stateDeputy: {
-      number: '',
-      candidate: '',
-      party: '',
-      nullOrWhite: ''
-    },
-    senator: {
-      number: '',
-      candidate: '',
-      party: '',
-      nullOrWhite: ''
-    },
-    governor: {
-      number: '',
-      candidate: '',
-      party: '',
-      nullOrWhite: ''
-    },
-    president: {
-      number: '',
-      candidate: '',
-      party: '',
-      nullOrWhite: ''
-    }
-  }
+    federalDeputy: { number: '', candidate: '', party: '', nullOrWhite: '' },
+    stateDeputy: { number: '', candidate: '', party: '', nullOrWhite: '' },
+    senator: { number: '', candidate: '', party: '', nullOrWhite: '' },
+    governor: { number: '', candidate: '', party: '', nullOrWhite: '' },
+    president: { number: '', candidate: '', party: '', nullOrWhite: '' }}
   step = 1;
   confirmVote = false;
   candidateName : string = '';
@@ -308,13 +282,14 @@ export class HomeComponent {
     logout () {
       localStorage.removeItem('jwt_token')
       this.router.navigate(['/login']);
-    }
+  }
 
 
   nextStep() {
     if (this.step === 1 && this.candidateName !== '' ||
       this.step === 1 && this.federalDeputyVoteWhite ||
-      this.step ===1 && this.federalDeputyVoteNull) {
+      this.step === 1 && this.federalDeputyVoteNull) {
+
       this.playConfirmAudio()
       this.voteRegistration.federalDeputy.number = this.federalDeputyVote;
       this.voteRegistration.federalDeputy.candidate = this.candidateName;
@@ -331,6 +306,7 @@ export class HomeComponent {
     if (this.step === 2 && this.candidateName !== '' ||
       this.step === 2 && this.stateDeputyVoteWhite ||
       this.step === 2 && this.stateDeputyVoteNull) {
+
       this.playConfirmAudio();
       this.voteRegistration.stateDeputy.number = this.stateDeputyVote;
       this.voteRegistration.stateDeputy.candidate = this.candidateName;
@@ -347,6 +323,7 @@ export class HomeComponent {
     if (this.step === 3 && this.candidateName !== '' ||
       this.step === 3 && this.senatorVoteWhite ||
       this.step === 3 && this.senatorVoteNull) {
+
       this.playConfirmAudio();
       this.voteRegistration.senator.number = this.senatorVote;
       this.voteRegistration.senator.candidate = this.candidateName;
@@ -366,6 +343,7 @@ export class HomeComponent {
     if (this.step === 4 && this.candidateName !== '' ||
       this.step === 4 && this.governorVoteWhite ||
       this.step === 4 && this.governorVoteNull) {
+
       this.playConfirmAudio();
       this.voteRegistration.governor.number = this.governorVote;
       this.voteRegistration.governor.candidate = this.candidateName;
@@ -384,6 +362,7 @@ export class HomeComponent {
     if (this.step === 5 && this.candidateName !== '' ||
       this.step === 5 && this.presidentVoteWhite ||
       this.step === 5 && this.presidentVoteNull) {
+
       this.playConfirmAudio();
       this.voteRegistration.president.number = this.presidentVote;
       this.voteRegistration.president.candidate = this.candidateName;
@@ -445,6 +424,4 @@ export class HomeComponent {
     this.presidentVoteWhite = false;
     this.presidentVoteNull = false;
   }
-
-
 }

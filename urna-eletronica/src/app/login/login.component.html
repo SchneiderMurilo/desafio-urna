@@ -1,4 +1,5 @@
 <main>
+  <form (ngSubmit)="login()">
   <section>
 
     <h2 class="login-title">Login:</h2>
@@ -21,7 +22,7 @@
         name="password"
         required
       />
-      <button class="password-button" (click)="changeTypeButtonPassword()" >
+      <button class="password-button" (click)="changeTypeButtonPassword()" type="button" >
         <img class="eye-password" src="../../assets/login/eye.png" alt="asd" />
       </button>
     </div>
@@ -30,8 +31,9 @@
 
     <button
       class="button-submit-login"
-      (click)="login()"
+      type="submit"
     >Entrar</button>
 
   </section>
+  </form>
 </main>

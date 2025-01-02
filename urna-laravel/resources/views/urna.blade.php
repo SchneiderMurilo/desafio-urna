@@ -7,14 +7,13 @@
         .header { text-align: center; margin-bottom: 20px; }
         .table { width: 100%; border-collapse: collapse; margin-bottom: 20px; }
         .table th, .table td { border: 1px solid #000; padding: 8px; text-align: left; }
-        .footer { margin-top: 20px; text-align: center; }
     </style>
 </head>
 <body>
 <div class="header">
     <h1>Relatorio da Urna</h1>
     <p>Urna ID: {{$data['urnaId']}}</p>
-    <p>Gerado em: {{ now()->format('d/m/Y H:i:s') }}</p>
+    <p>Gerado em: {{ now()->setTimezone('America/Sao_Paulo')->format('d/m/Y H:i:s') }}</p>
 </div>
 
 <h2>Deputado Federal</h2>

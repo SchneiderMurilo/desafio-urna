@@ -17,13 +17,11 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::post('login', [AuthController::class, 'login'])->name('login');
-        Route::post('urna', [UrnaController::class, 'store']);
+
+Route::post('urna', [UrnaController::class, 'store']);
 
 Route::middleware('auth:api')->get('test', function (Request $request) {
     return response()->json($request->user());
 });
-
-    Route::middleware(['ProtecedRouteAuth'])->group(function() {
-    });
 
 
